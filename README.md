@@ -7,7 +7,7 @@ This app was developed for Zemoga company, and consist on a simple portfolio tha
 2. Create an app with the wizard, it gives you an SECRET KEY 
 3. Use this line to create an app template localy, run the command below and then take note the name you used for your app:
 ```CMD
-npx @serverless/cloud --template js-api -—login <SECRET_KEY_GIVED>
+npx @serverless/cloud --template js-api -—login <SECRET_KEY_GIVEN>
 ```
 4. Remove all files given an clone my GitHub repository in that folder with this command: 
 ```CMD

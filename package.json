@@ -1,0 +1,21 @@
+{
+  "name": "simple-porfolio",
+  "version": "1.0.0",
+  "description": "Simple portfolio webpage that retrieves all information from the data base",
+  "main": "index.js",
+  "type": "module",
+  "scripts": {
+    "start": "cloud",
+    "test": "cloud test"
+  },
+  "devDependencies": {
+    "@serverless/cloud": "^2.0.0"
+  },
+  "serverless": {
+    "app": "simple-portfolio-back",
+    "org": "andres6arcia"
+  },
+  "dependencies": {
+    "twitter": "^1.7.1"
+  }
+}

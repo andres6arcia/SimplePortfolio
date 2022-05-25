@@ -60,3 +60,23 @@ api.get('/tweets', async (req, res) => {
   }
 
 })
+
+
+// Send message from the contact form
+api.post('/contact', async (req, res) => {
+  
+    try {
+
+      const { name, email, message } = req.body
+      const forwarded = req.headers['x-forwarded-for']
+      const ip = forwarded ? forwarded.split(/, /)[0] : req.connection.remoteAddress;
+      const serial = await data.set('contactMessages:id',{$add:1})
+      
+      await data.set('contactMessages:'+serial, {ip, name:name.slice(0,50), email:email.slice(0,50), message:message.slice(0,700)})
+      res.status(200).send({ message: 'Message sent successfully' })
+
+    }catch(error){
+      res.status(500).send({ message: 'Error sending message', data: error.message })
+    }
+
+})

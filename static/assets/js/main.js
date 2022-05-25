@@ -58,6 +58,29 @@
 			}, 100);
 		});
 
+	// Send data from the contact form 
+	$('#my_form').submit( (event)=>{
+		event.preventDefault()
+		$.post("https://delightful-stack-k2dxr.cloud.serverless.com/contact", {
+			name: $("#name").val(),
+			email: $("#email").val(),
+			message: $("#message").val()
+		},
+		async (response)=>{
+			$("#name").val('')
+			$("#email").val('')
+			$("#message").val('')
+			$("#send").attr('value','Thank you!')
+			$("#message").attr('placeholder', 'Message sent successfully')
+			await wait(3000)
+			$("#send").attr('value','Send Message')
+			$("#message").attr('placeholder', 'Message')
+		})
+
+	})
+
+	function wait(ms) {return new Promise(resolve => setTimeout(resolve, ms))}
+
 	// Touch mode.
 		if (browser.mobile) {
 

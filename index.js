@@ -73,10 +73,10 @@ api.post('/contact', async (req, res) => {
       const serial = await data.set('contactMessages:id',{$add:1})
       
       await data.set('contactMessages:'+serial, {ip, name:name.slice(0,50), email:email.slice(0,50), message:message.slice(0,700)})
-      res.status(200).send({ message: 'Message sent successfully' })
+      res.status(200).send({ ok:true, message: 'Message sent successfully 📨' })
 
     }catch(error){
-      res.status(500).send({ message: 'Error sending message', data: error.message })
+      res.status(500).send({ ok:false, message: 'Error sending message: ' + error.message })
     }
 
 })

@@ -67,14 +67,34 @@
 			message: $("#message").val()
 		},
 		async (response)=>{
-			$("#name").val('')
-			$("#email").val('')
-			$("#message").val('')
-			$("#send").attr('value','Thank you!')
-			$("#message").attr('placeholder', 'Message sent successfully')
+
+			console.log('response: ', response);
+			if (response.ok){
+				$("#name").val('')
+				$("#email").val('')
+				$("#message").val('')
+				$("#send").attr('value','Thank you! 😊')
+				color = $("#send").css('background-color')
+				$("#send").css('background-color','red')
+				$("#message").attr('placeholder', response.message)
+				await wait(3000)
+				$("#send").css('background-color',color)
+				$("#send").attr('value','Send Message')
+				$("#message").attr('placeholder', 'Message')
+			}
+
+		}).fail(async function(response){
+
+			$("#send").attr('value','Error Sending 😅')
+			color = $("#send").css('background-color')
+			$("#send").css('background-color','red')
+			message = $("#message").val()
+			$("#message").val(response.statusText.charAt(0).toUpperCase() + response.statusText.slice(1) + ': ' + response.status)
 			await wait(3000)
+			$("#send").css('background-color',color)
 			$("#send").attr('value','Send Message')
-			$("#message").attr('placeholder', 'Message')
+			$("#message").val(message)
+
 		})
 
 	})

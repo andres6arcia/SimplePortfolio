@@ -8,15 +8,12 @@
     "start": "cloud",
     "test": "cloud test"
   },
-  "devDependencies": {
-    "@serverless/cloud": "^2.10.12"
-  },
   "serverless": {
     "app": "simple-portfolio-back",
     "org": "andres6arcia"
   },
   "dependencies": {
-    "cloud": "^2.0.2",
+    "@serverless/cloud": "^2.10.12",
     "twitter": "^1.7.1"
   }
 }

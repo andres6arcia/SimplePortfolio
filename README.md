@@ -28,7 +28,9 @@ cloud deploy <NAME_OF_YOUR_APP>
 * The serverless cloud framework
 * Twitter library to retrieve the last 5 tweets.
 * Template from HTML5UP webpage: html5up.net
+* Dependency injection container
+* * *
 
-
-
+## Architecture Used: Onion
+![Onion Architecture](https://raw.githubusercontent.com/andres6arcia/SimplePortfolio/master/onionArchitecture.png)
 
